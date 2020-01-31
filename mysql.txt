@@ -1,0 +1,10 @@
+
+Create Database:
+CREATE SCHEMA pynative;
+
+Use Database:
+USE pynative
+
+Create Table Execution:
+mysql>CREATE TABLE Laptop (Id int, Name varchar(20), Price float);
+
