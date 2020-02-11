@@ -8,3 +8,15 @@ USE pynative
 Create Table Execution:
 mysql>CREATE TABLE Laptop (Id int, Name varchar(20), Price float);
 
+Create Schema KMS:
+CREATE SCHEMA kms;
+
+Import kms.sql in empty database kms:
+mysql>USE kms;
+mysql>select @@datadir;
+#The output of above command is the bin directory / data dir of the Database.
+#place kms.sql in the Data Directory / bin directory found with above command.  After that:
+mysql>USE kms;
+mysql>source kms.sql;
+#To Verify:
+mysql>show tables;
