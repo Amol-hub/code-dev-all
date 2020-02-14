@@ -1,0 +1,9 @@
+1. Install python
+$apt-get install python3.4
+2. Install Virtualenv
+$sudo apt-get install python3.4-venv
+3. Create own virtual env
+$python3 -m venv myenv
+$source myenv/bin/activate
+#prompt will change to (myenv)user@host:path$
+
