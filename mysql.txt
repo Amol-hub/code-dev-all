@@ -20,3 +20,28 @@ mysql>USE kms;
 mysql>source kms.sql;
 #To Verify:
 mysql>show tables;
+
+
+RESET root PASSWORD STEPS:
+1. sudo mysql -u root -p
+2. mysql>USE mysql;
+3. mysql>SELECT user, host, plugin FROM mysql.user;
+4. mysql>UPDATE user SET plugin='mysql_native_password' WHERE user='root';
+5. mysql>FLUSH PRIVILEGES;
+6. mysql>quit
+7. $service mysql restart
+8. $sudo mysql -u root -p
+9. Check if Field name is Password or 'authentication_string or others:
+10. mysql>select * from mysql.user where user = 'root';
+11. mysql>UPDATE mysql.user SET'authentication_string' = 'Amol123456' WHERE user = 'root';
+OR
+11. mysql> UPDATE user SET password = PASSWORD('password') WHERE host = 'localhost' AND user = 'root';
+12. quit
+13. sudo service mysql restart
+14. login normally, using: 
+$mysql -u root -p
+DONE
+
+
+List Tables Where String matches Table_Name:
+mysql> SELECT table_name FROM information_schema.tables WHERE table_schema='sms_2023' AND table_name LIKE '%invoice%';
