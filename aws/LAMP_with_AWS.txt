@@ -1,0 +1,2 @@
+LAMP Stack with AWS - Steps:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-LAMP.html
