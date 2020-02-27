@@ -45,3 +45,9 @@ DONE
 
 List Tables Where String matches Table_Name:
 mysql> SELECT table_name FROM information_schema.tables WHERE table_schema='sms_2023' AND table_name LIKE '%invoice%';
+
+List Tables Where Column with Given Name is present:
+mysql> SELECT table_name, column_name, data_type, ordinal_position
+    -> FROM INFORMATION_SCHEMA.COLUMNS
+    -> WHERE table_schema = 'sms_2023' 
+    -> AND column_name = 'updated_time';

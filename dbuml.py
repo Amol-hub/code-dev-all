@@ -3,12 +3,12 @@ from mysql.connector import Error
 from mysql.connector import errorcode
 
 try:
-	connection = mysql.connector.connect(host='localhost',database='pynative',user='root',password='Amol123456')
+	connection = mysql.connector.connect(host='localhost',database='pynative',user='root',password='password')
 
-	mySql_insert_query = """INSERT INTO Laptop (Id, Name, Price)
-				VALUES (%s, %s, %s)"""
+	mySql_insert_query = """INSERT INTO Laptop (Name, Price)
+				VALUES (%s, %s)"""
 	cursor = connection.cursor()
-	insert_tuple = (1, 'Acer Predator Triton', 45000.00)
+	insert_tuple = ('Toshiba Tekra', 50699)
 
 	result = cursor.execute(mySql_insert_query, insert_tuple)
 	connection.commit()
