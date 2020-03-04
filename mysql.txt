@@ -51,3 +51,6 @@ mysql> SELECT table_name, column_name, data_type, ordinal_position
     -> FROM INFORMATION_SCHEMA.COLUMNS
     -> WHERE table_schema = 'sms_2023' 
     -> AND column_name = 'updated_time';
+
+JOINT QUERY ON TWO TABLES:
+select package_name, start_time, expiry_time,package_id_id FROM command_subscriptions,product_package_package WHERE command_subscriptions.package_id_id = product_package_package.kms_package_id;
