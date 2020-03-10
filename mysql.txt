@@ -54,3 +54,21 @@ mysql> SELECT table_name, column_name, data_type, ordinal_position
 
 JOINT QUERY ON TWO TABLES:
 select package_name, start_time, expiry_time,package_id_id FROM command_subscriptions,product_package_package WHERE command_subscriptions.package_id_id = product_package_package.kms_package_id;
+
+
+UPDATE Table for One Column in All Rows, Update from current Numbers To SEQUENCE STARTING 1..n WHERE n will be same as Row Number:
+
+mysql> UPDATE command_subscriptions
+    -> JOIN (SELECT @rank := 0) r
+    -> SET stb_id_id=@rank:=@rank+1;
+Query OK, 52 rows affected (0.18 sec)
+Rows matched: 53  Changed: 52  Warnings: 0
+Old values: '1' for all rows.
+
+
+UPDATE table to set same value in all rows for the given column:
+mysql> UPDATE command_subscriptions
+    -> SET stb_id_id = 1
+    -> WHERE stb_id_id IS NOT NULL;
+Query OK, 52 rows affected (0.20 sec)
+Rows matched: 53  Changed: 52  Warnings: 0
