@@ -1,0 +1,2 @@
+# Add Open Stack and kvm in Resume.
+# 
