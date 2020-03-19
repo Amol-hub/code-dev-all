@@ -8,7 +8,7 @@ try:
 	mySql_insert_query = """INSERT INTO Laptop (Name, Price)
 				VALUES (%s, %s)"""
 	cursor = connection.cursor()
-	insert_tuple = ('Toshiba Tekra', 50699)
+	insert_tuple = ('Dell D600', 72699)
 
 	result = cursor.execute(mySql_insert_query, insert_tuple)
 	connection.commit()
