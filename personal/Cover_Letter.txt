@@ -1,0 +1,10 @@
+Dear Sir / Madam,
+
+It was great to receive the job opportunity of Cloud Architect from glassdoor.com in your organisation. I have finished AWS certification, Microsoft Azure and GCP currently ongoing. I have worked on Oracle Cloud - both classic and native models and AWS. I have a good command on UNIX and Linux administration, good command on Source Control Management Systems including GIT, SDLC, CI/CD as well. A detailed overview of my 18 years IT experience is described in my Resume (Attached). 
+
+I have also undergone Project Management and Certified Scrum Master courses, and have been a continuous practitioner of Agile driven Development / Management for several years.
+
+I Thank you for considering my candidature for Cloud Architect role.
+
+With Regards,
+Amol Chitre

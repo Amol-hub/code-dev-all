@@ -1,0 +1,27 @@
+
+ Trainings Pursuing at present : 
+- Solutions Architect Certification of AWS - Completed. 
+- Microsoft Azure Solutions Architect AZ 300 - 301 
+- Google Professional Cloud Architect 
+ 
+ DEVOPS 
+ System and Network 
+ Administration 
+ 
+ DEVOPS 
+ UNIX Servers Administration 
+ 	 on All Unix Platforms 
+ 
+ INTEGRATION 
+ Source Control Management - 	 Build and Release with 
+ Automation Scripting and Tests 
+ CI/CD Pipelines, 
+ Hudson, Jenkins, Integ Config 
+ 
+ CLOUD PROVISIONING 
+ Provisioning On-prem Oracle products to 
+ Oracle Cloud, Worked on PAAS, SAAS with 
+ OCI Classic, OCI Native Cloud Services, 
+ Provided Sustaining Support to Oracle 
+ 	 Cloud Classic Customers. 
+ AWS Solutions Architect

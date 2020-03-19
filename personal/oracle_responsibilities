@@ -1,0 +1,18 @@
+Achievements : 
+Deploying a multi-tier Website using AWS EC2 without upfront cost 
+Creation of RDS and moving traffic from EC2 to RDS 
+Responsible for upkeeping SAAS Services layered on JCS, that comprises Databases with DBAAS, Weblogic Cluster with LBAAS and public IP, IAM, Public and Private Keys for authentication, Storage Cloud for containers having backup provision, 
+Responsible for cloud instances for customers and other requirements of OPC Team for OCI classic services 
+Facilitated Migrations From on-prem to Cloud 
+Brainstorming R and D on OCI Native Framework on Control Plane Side as POC 
+Sole incharge of sustaining support to OCI classic services ustomers 
+Responsible for efficient POD management, in various Availability Domains.
+Took ownership of providing Pager Duty technical support to external customers and documenting events along with RCA, Preventive Actions	and Corrective actions as required.
+Assisted non-OPC Team members during their pager duty towards technical and managerial requirement 
+Managed Agile driven development, working on scrum boards, allocating tasks based on sprint planning, PBIs, tracking progress via scrum calls, announcement of completed tasks while analysing tentative time span for completion of tasks in progress. 
+Monitored project progress as per scheduled deadlines for various tasks and taking necessary steps to ensure completion, taking steps towards clearing roadblocks, within time, cost and effort parameters.
+Ensured that the project delivery team structure is adequate and enforces compliance, follows best practices and direction for the technical aspects of the organisation's perspective.
+Received appreciation from own and customer teams for 'SCM Migration Task' 
+Took ownership in providing training to Sustaining Team for ADE Label Integration task In role of Build and Release.
+Wrote Clean-up Shell Scripts to automatically clean pool of machines before invoking new Testing job.
+
