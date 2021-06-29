@@ -1,0 +1,17 @@
+Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| ID    | int         | NO   | PRI | NULL    |       |
+| Name  | varchar(50) | NO   |     | NULL    |       |
+
+
+Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| ID        | int         | NO   |     | NULL    |       |
+| Name      | varchar(20) | NO   |     | NULL    |       |
+| Desig     | varchar(20) | NO   |     | NULL    |       |
+| Emp_Info  | varchar(50) | YES  |     | NULL    |       |
+| Salary    | int         | NO   |     | NULL    |       |
+| Dept_name | varchar(20) | YES  |     | NULL    |       |
+| Dept_id   | int         | YES  | MUL | NULL    |       |
+| Manager   | varchar(20) | YES  |     | NULL    |       |
+| HR_Rep    | varchar(20) | YES  |     | NULL    |       |
