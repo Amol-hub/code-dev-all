@@ -1,0 +1,59 @@
+pipeline {
+    pipeline {
+    agent any
+    stages {
+        stage('Pull Code')
+        {
+            steps {
+                echo '"STARTING PULL CODE FROM GIT"'
+               git branch: 'Filter&pagination_changes', credentialsId: '003c8da6-9b0b-4c8c-9c76-3d77acbdf550', url: 'git@gitlab.intellore.com:root/milwaukee-poc.git'
+                sh 'sleep 5'
+            }
+        }
+        stage('Build')
+        {
+            steps {
+                echo '"STARTING BUILD"'
+                dir("/var/lib/jenkins/workspace/Milwaukee/Sensometer/aspnet-core/src/SensoMeter.Web.Mvc")
+            {
+                
+                sh 'pwd && ls'
+                sh 'sudo chmod 775 -R /var/lib/jenkins/workspace/Milwaukee/Sensometer/aspnet-core/src/'
+                sh 'ls -l'
+                sh 'sudo dotnet build -v diag'
+            }
+            }
+        }   
+        stage('Publish')
+        {
+            steps {
+                dir("/var/lib/jenkins/workspace/Milwaukee/Sensometer/aspnet-core/src/SensoMeter.Web.Mvc")
+                {
+                echo '"STARTING PUBLISH"'
+                sh 'pwd && ls'
+                sh 'dotnet publish'
+                sh 'tar -cvf publish.tar /var/lib/jenkins/workspace/Milwaukee/Sensometer/aspnet-core/src/SensoMeter.Web.Mvc/bin/Debug/net5.0/publish'
+                }
+            }
+        stage('Deploy')
+        {   
+            agent { 
+                label 'deploy'
+                }
+            steps {
+                
+                echo '"STARTING DEPLOYMENT"'
+                sh 'mkdir ${JENKINS_HOME}/workspace/${JOB_NAME}/${BUILD_NUMBER}/'
+                sh 'mv /home/abhilash/publish.tar /var/lib/jenkins/workspace/${JOB_NAME}/${BUILD_NUMBER}/'
+                sh 'tar -xvf  /var/lib/jenkins/workspace/${JOB_NAME}/${BUILD_NUMBER}/publish.tar'
+                sh 'dotnet run'
+                }    
+            }
+         
+        }
+    }    
+
+
+
+
+
