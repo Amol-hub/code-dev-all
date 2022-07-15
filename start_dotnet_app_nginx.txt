@@ -1,0 +1,134 @@
+Create New EC2 Instance
+------------------------
+
+Configure AspDotNet Core 5.0
+-----------------------------
+
+Step 1:
+Before we install dotnet, run the following commands to add the Microsoft package signing key to your list of trusted keys and add the package repository.
+
+$ wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+$ sudo dpkg -i packages-microsoft-prod.deb
+
+Step 2:
+Update package list / repositories with sudo apt update
+
+$ sudo apt install -y apt-transport-https && sudo apt update
+
+Step 3 (Install the SDK / runtime):
+The .NET SDK allows you to develop apps with .NET. If you install the .NET SDK, you don't need to install the corresponding runtime. To install the .NET SDK, run the following commands:
+
+$ sudo apt install -y dotnet-sdk-5.0
+
+or if you just want to run apps install .NET runtime alone. The ASP.NET Core Runtime allows you to run apps that were made with .NET that didn't provide the runtime. The following commands install the ASP.NET Core Runtime, which is the most compatible runtime for .NET. In your terminal, run the following commands:
+
+$ sudo apt install -y aspnetcore-runtime-5.0
+The above command will install ASP.NET Core Runtime. if you just need .NET runtime use the below command.
+
+Step 4:
+$ sudo apt install -y dotnet-runtime-5.0
+
+Step 5 (Check the installation):
+Use the following commands to verify the installtion of .NET Core 5.0
+
+$ dotnet --list-sdks && dotnet --list-runtimes
+
+The above command will print list of installed .NET sdks and runtimes
+
+> Create and configure ASP.NET Core applications in Linux
+--------------------------------------------------------------------------
+
+$ dotnet new <template_type> -n <project_name> -o <output_directory>
+
+e.g.
+$ dotnet new webapp -n SampleSensoMeter -o Sensowebapp
+
+$ cd Sensowebapp
+
+$ dotnet run
+
+$ sudo apt install net-tools
+
+$ netstat -tlp
+
+$ curl http://localhost:5000
+
+$ vi ~/Sensowebapp/Startup.cs
+
+> Comment both the app.UseHsTs(); and app.UseHttpsRedirection(); lines by adding // at the start of them
+
+$ curl http://localhost:5000
+
+> <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home page - SampleSensoMeter</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/site.css" />
+</head>
+<body>
+................................
+
+$ cd Sensowebapp
+
+$ dotnet publish 
+
+$ sudo cp -a ~/Sensowebapp/bin/Debug/net5.0/publish/ /var/Sensowebapp/
+
+$ dotnet /var/Sensowebapp/SampleSensoMeter.dll
+
+> Install Nginx and configure it as a reverse proxy server
+-----------------------------------------------------------
+
+$ curl localhost
+
+$ sudo systemctl start nginx
+
+$ sudo systemctl enable nginx
+
+$ sudo systemctl ststus nginx	
+
+$ cat /etc/nginx/nginx.conf
+
+$ cp /etc/nginx/sites-enabled/default ~/nginx-default-backup
+
+$ sudo vi /etc/nginx/sites-enabled/default
+
+> to edit the configuration file and replace the server directive
+
+server {
+    listen        80;
+    server_name _;
+    location / {
+        proxy_pass         http://localhost:5000;
+        proxy_http_version 1.1;
+        proxy_set_header   Upgrade $http_upgrade;
+        proxy_set_header   Connection keep-alive;
+        proxy_set_header   Host $host;
+        proxy_cache_bypass $http_upgrade;
+        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header   X-Forwarded-Proto $scheme;
+    }
+}
+
+
+$ sudo systemctl restart nginx
+
+$ curl localhost
+
+> Resolving localhost (localhost)... 127.0.0.1  
+Connecting to localhost (localhost)|127.0.0.1|:80... connected.  
+HTTP request sent, awaiting response... 502 Bad Gateway  
+2020-12-27 21:15:53 ERROR 502: Bad Gateway.
+
+$ netstat -tlp | grep 5000
+
+$ cat /var/log/nginx/access.log
+
+$ cat /var/log/nginx/error.log
+
+$ dotnet /var/Sensowebapp/SampleSensoMeter.dll
+
+$ curl localhost

@@ -1,0 +1,32 @@
+#cat /etc/nginx/sites-available/default
+server {
+  listen 80 default_server;
+        listen [::]:80 default_server;
+
+  root /usr/share/nginx/html;
+  index index.html index.htm;
+
+  location / {
+    proxy_set_header Host $http_host;
+    proxy_pass http://localhost:5000/;
+  }
+
+}
+
+server {
+  listen 8081 default_server;
+        listen [::]:8081 default_server;
+
+  root /var/www/html/Tcpserver;
+  index tcpserverlogs.txt;
+  location ~ \.php$
+{
+ include snippets/fastcgi-php.conf;    fastcgi_pass unix:/run/php/php7.4-fpm.sock;
+}
+ }
+
+
+# server {
+#listen 127.0.0.1:443 ;
+
+#proxy_pass 127.0.0.1:443;
